@@ -42,10 +42,10 @@ function App() {
   } 
 
   return (
-    <div className={styles.App}>{/* 
-    <AuthProvider value={ user }> */}
-      <BrowserRouter>{/* 
-          <Nav/> */}
+    <div className={styles.App}>
+    <AuthProvider value={ user }>
+      <BrowserRouter>
+          <Nav/>
           <Routes>
             <Route path='/Portifolio/' element={<First />} />
             <Route path='/Portifolio/Home' element={<Home />} />
@@ -60,8 +60,8 @@ function App() {
             
           </Routes>
           <Footer/>
-        </BrowserRouter>{/* 
-    </AuthProvider> */}
+        </BrowserRouter>
+    </AuthProvider>
     </div>
   );
 }
