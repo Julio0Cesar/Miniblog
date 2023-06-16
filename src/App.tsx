@@ -44,10 +44,11 @@ function App() {
   return (
     <div className={styles.App}>{/* 
     <AuthProvider value={ user }> */}
+    teste
       <BrowserRouter>{/* 
           <Nav/> */}
           <Routes>
-            <Route path='/' element={<First />} />{/* 
+            <Route path='/test/' element={<First />} />{/* 
             <Route path='/Home' element={<Home />} />
             <Route path='/About' element={<About />} />
             <Route path='/Search' element={<Search />} />
