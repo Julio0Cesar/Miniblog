@@ -1,9 +1,9 @@
 import React from 'react'
 import styles from './First.module.scss'
-import { Link } from 'react-router-dom'/* 
-import NavBar from '../../components/navbar/NavBar' *//* 
+import { Link } from 'react-router-dom'
+import NavBar from '../../components/navbar/NavBar'
 import todolistIM from '../../assets/todolist.png'
-import miniBlogIM from '../../assets/miniblog.png' */
+import miniBlogIM from '../../assets/miniblog.png'
 
 const Home = () => {
   return (
@@ -24,15 +24,15 @@ const Home = () => {
               <h1>Projetos</h1>
             <div className={styles.projectArea}>
               <div className={styles.project}>
-                <Link to='/Home'>{/* 
-                  <img src={miniBlogIM} /> */}
+                <Link to='/test/Home'>
+                  <img src={miniBlogIM} />
                   <span className={styles.esc}><i className="fi fi-brands-typescript"></i> + <i className="fa-brands fa-react"></i> + FIREBASE</span>
                   <span>Mini-Blog</span>
                 </Link>
               </div>
               <div className={styles.project}>
-                <Link to='/TodoList'> {/* 
-                  <img src={todolistIM} /> */}
+                <Link to='/test/TodoList'> 
+                  <img src={todolistIM} />
                   <span className={styles.esc}><i className="fi fi-brands-typescript"></i> + <i className="fa-brands fa-react"></i> + <i className="fa-brands fa-sass"></i></span>
                   <span>Todo-List</span>
                 </Link>
