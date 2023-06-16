@@ -1,8 +1,8 @@
 import styles from '../src/styles/Global.scss'
 
-import { BrowserRouter, Routes, Route, Navigate, Link } from 'react-router-dom'; 
+import { BrowserRouter, Routes, Route, Navigate, Link } from 'react-router-dom'; /* 
 import First from './pages/home/First'
-import NavBar from './components/navbar/NavBar'/* 
+import NavBar from './components/navbar/NavBar' *//* 
 import Home from './Blog/pages/home/Home';
 import Nav from './Blog/components/navbar/Nav';
 import About from './Blog/pages/about/About';
@@ -14,8 +14,8 @@ import E404 from './Blog/pages/404/E404';
  */
 import { onAuthStateChanged, User} from 'firebase/auth';
 
-import { useState, useEffect } from 'react';
-import Footer from './components/footer/Footer';
+import { useState, useEffect } from 'react';/* 
+import Footer from './components/footer/Footer'; */
 /* 
 import { AuthProvider } from './Blog/context/AuthContext';
 import useAuthentication from './Blog/hooks/useAuthentication';
@@ -44,10 +44,11 @@ function App() {
   return (
     <div className={styles.App}>{/* 
     <AuthProvider value={ user }> */}
+            <p>teste</p>
       <BrowserRouter>{/* 
           <Nav/> */}
-          <Routes>
-            <Route path='/' element={<First />} />{/* 
+          <Routes>{/* 
+            <Route path='/' element={<First />} /> */}{/* 
             <Route path='/Home' element={<Home />} />
             <Route path='/About' element={<About />} />
             <Route path='/Search' element={<Search />} />
@@ -57,9 +58,8 @@ function App() {
             <Route path='/CreatePost' element={user ? <CreatePost /> : <Navigate to='/Login' />} />
             <Route path='/Profile' element={user ? <Profile /> : <Navigate to='/Login' />} />
             <Route path='/TodoList' element={<TodoList />} /> */}
-            
-          </Routes>
-          <Footer/>
+          </Routes>{/* 
+          <Footer/> */}
         </BrowserRouter>{/* 
     </AuthProvider> */}
     </div>
