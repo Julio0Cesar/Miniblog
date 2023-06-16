@@ -24,14 +24,14 @@ const Home = () => {
               <h1>Projetos</h1>
             <div className={styles.projectArea}>
               <div className={styles.project}>
-                <Link to='/test/Home'>
+                <Link to='/Portifolio/Home'>
                   <img src={miniBlogIM} />
                   <span className={styles.esc}><i className="fi fi-brands-typescript"></i> + <i className="fa-brands fa-react"></i> + FIREBASE</span>
                   <span>Mini-Blog</span>
                 </Link>
               </div>
               <div className={styles.project}>
-                <Link to='/test/TodoList'> 
+                <Link to='/Portifolio/TodoList'> 
                   <img src={todolistIM} />
                   <span className={styles.esc}><i className="fi fi-brands-typescript"></i> + <i className="fa-brands fa-react"></i> + <i className="fa-brands fa-sass"></i></span>
                   <span>Todo-List</span>

@@ -1,7 +1,7 @@
 {
   "name": "testpage",
   "version": "0.1.0",
-  "homepage": "https://Kintiz.github.io/test",
+  "homepage": "https://Kintiz.github.io/Portifolio",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
