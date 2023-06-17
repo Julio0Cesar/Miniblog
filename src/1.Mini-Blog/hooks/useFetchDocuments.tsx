@@ -8,7 +8,7 @@ import {
   where,
 } from "firebase/firestore";
 
-export const useFetchDocuments = (docCollection: string, search?: string | null, uid = null) => {
+export const useFetchDocuments = (docCollection: string, search?: string | null, uid?: string | undefined| null) => {
     const [documents, setDocuments] = useState<any[]>([]);
     const [err, setErr] = useState<Error | undefined >();
     const [loading, setLoading] = useState(Boolean)
@@ -65,7 +65,7 @@ export const useFetchDocuments = (docCollection: string, search?: string | null,
       }
 
         loadData();
-    },[docCollection, documents, search, uid, cancelled])
+    },[docCollection, search, uid, cancelled])
 
 
   useEffect(() => {

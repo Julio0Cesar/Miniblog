@@ -18,9 +18,10 @@ import Profile from './1.Mini-Blog/pages/profile/Profile';
 import E404 from './1.Mini-Blog/pages/404/E404';
 import Post from './1.Mini-Blog/pages/post/Post';
 import Search from './1.Mini-Blog/pages/search/Search';
-import TodoList from './2.Todo-List/Todo-List';
-
 import useAuthentication from './1.Mini-Blog/hooks/useAuthentication';
+import TodoList from './2.Todo-List/Todo-List';
+import EditPost from './1.Mini-Blog/pages/editPost/EditPost';
+
 
 
 function App() {
@@ -55,6 +56,7 @@ function App() {
             <Route path='/Portifolio/CreateAccount' element={!user ? <CreateAccount /> : <Navigate to='/Portifolio/Home' />} />
             <Route path='/Portifolio/CreatePost' element={user ? <CreatePost /> : <Navigate to='/Portifolio/Login' />} />
             <Route path='/Portifolio/Profile' element={user ? <Profile /> : <Navigate to='/Portifolio/Login' />} />
+            <Route path='/Portifolio/Post/Edit/:id' element={user ? <EditPost /> : <Navigate to='/Portifolio/Login' />} />
             
             <Route path='/Portifolio/TodoList' element={<TodoList />} /> 
           </Routes>

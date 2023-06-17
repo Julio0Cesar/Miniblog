@@ -7,7 +7,7 @@ const Nav = () => {
   const user: User| null | undefined = useAuthValue()
 
   const location = useLocation()
-  if(location.pathname === '/Portifolio/'){
+  if(location.pathname === '/Portifolio'){
     return null
   }else if(location.pathname ==='/Portifolio/TodoList'){
     return null
