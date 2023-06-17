@@ -1,4 +1,4 @@
-import { Link, useLocation } from 'react-router-dom'
+import { Link, NavLink, useLocation } from 'react-router-dom'
 import { Auth, User } from 'firebase/auth'
 import { useAuthValue } from '../../context/AuthContext'
 import styles from './Nav.module.scss'
@@ -17,22 +17,32 @@ const Nav = () => {
     <header>
       <nav className={styles.navContent}>
         <div className={styles.logo}>
-          <Link to='/Portifolio/Home'>
+          <NavLink to='/Portifolio/Home'>
             Mini <h1>BLOG</h1>
-          </Link>
+          </NavLink>
         </div>
         <div className={styles.navListItems}>
           <ul>
-            <li> <Link to='/Portifolio/Home'>Home</Link> </li>
-            <li> <Link to='/Portifolio/About'>About</Link> </li>
+            <li> <NavLink to='/Portifolio/Home'
+                  className={({ isActive }) => (isActive ? styles.active : "")}
+                  >Home</NavLink> </li>
+            <li> <NavLink to='/Portifolio/About'
+                  className={({ isActive }) => (isActive ? styles.active : "")}
+                  >About</NavLink> </li>
             {!user && (
               <>
-                <li> <Link to='/Portifolio/Login'>Login</Link> </li>
+                <li> <NavLink to='/Portifolio/Login'
+                      className={({ isActive }) => (isActive ? styles.active : "")}
+                      >Login</NavLink> </li>
               </>)} 
             {user &&(
               <>
-              <li> <Link to='/Portifolio/Profile'>Profile</Link> </li>
-              <li> <Link to='/Portifolio/CreatePost'>New Post</Link> </li>
+              <li> <NavLink to='/Portifolio/Profile'
+                    className={({ isActive }) => (isActive ? styles.active : "")}
+                    >Profile</NavLink> </li>
+              <li> <NavLink to='/Portifolio/CreatePost'
+                    className={({ isActive }) => (isActive ? styles.active : "")}
+                    >New Post</NavLink> </li>
               </> )}
           </ul>
         </div>

@@ -59,6 +59,7 @@ function App() {
             <Route path='/Portifolio/Post/Edit/:id' element={user ? <EditPost /> : <Navigate to='/Portifolio/Login' />} />
             
             <Route path='/Portifolio/TodoList' element={<TodoList />} /> 
+            <Route path='*' element={<E404 />} />
           </Routes>
           <Footer/>
         </BrowserRouter>
