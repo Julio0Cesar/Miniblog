@@ -9,7 +9,6 @@ import {
 } from 'firebase/auth'
 
 import {useState, useEffect} from 'react'
-import { Navigate } from 'react-router-dom'
 
 const useAuthentication = () => {
   const [err, setErr] = useState<Error | undefined >()

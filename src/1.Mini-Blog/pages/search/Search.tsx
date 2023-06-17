@@ -16,13 +16,13 @@ const Search = () => {
         <div className={styles.content}>
             <div className={styles.header}>
                 <h2>Search</h2>
-                <Link to='/Home'> Return</Link>
+                <Link to='/Portifolio/Home'> Return</Link>
 
             </div>
             {posts && posts.length === 0 && (
                 <>
                     <p>Post not Found</p>
-                    <Link to='/Home'> Return</Link>
+                    <Link to='/Portifolio/Home'> Return</Link>
                 </>
             )}
             {posts && posts.map((post)=> <PostDetails key={post.id} post={post}/>)}

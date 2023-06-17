@@ -14,6 +14,7 @@ const PostDetails = ({post}: Props) => {
             </div>
             <div className={styles.text}>
                 <h2>{post.title}</h2>
+                <p>{post.body}</p>
                 <p>{post.createdBy}</p>
             </div>
         </div>
@@ -26,7 +27,7 @@ const PostDetails = ({post}: Props) => {
         </div>
         <div className={styles.link}>
 
-        <Link to={`/Post/${post.id}`}>View</Link>
+        <Link to={`/Portifolio/Post/${post.id}`}>View</Link>
         </div>
     </div>
   )

@@ -1,0 +1,57 @@
+@mixin disFlex{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center
+}
+.container{
+  @include disFlex;
+  flex-direction: column;
+  justify-content: start;
+
+  p{
+    margin: 20px;
+  }
+  .task {
+    @include disFlex;
+    margin: 20px;
+    width: 25%;
+    height: 100%;
+    border: 1px solid black;
+    border-radius: 20px;
+    transition: 1s;
+    background-color: rgb(168, 110, 68);
+    }.task:hover{transition: 1s;transform: scale(1.02);}
+
+    .content{
+      display: flex;
+      width: 100%;
+      .titleDifficulty{
+        width: 100%;
+        text-align: start;
+          p{
+            font-size: 1.2em;
+            margin-bottom: 1em;
+            span{
+              font-size: 0.7em;
+              font-weight: 200;
+            }
+          }
+      }
+      .editDelete{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        i{
+          margin: 20px;
+          padding: 5px;
+          width: 40px;
+          height: 40px;
+          cursor: pointer;
+          background-color: rgba(0, 0, 0, 0.123);
+          border-radius: 30%;
+        transition: 0.5s;
+        }i:hover{color: #7a3333;}
+      }
+    }
+}

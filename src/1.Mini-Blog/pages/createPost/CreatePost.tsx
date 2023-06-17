@@ -61,7 +61,7 @@ const CreatePost = () => {
       createdBy: user?.displayName
     })
   
-    navigate("/Portifolio/") 
+    navigate("/Portifolio/Home") 
   }
 
 
@@ -75,6 +75,7 @@ const CreatePost = () => {
             type="text" 
             name='title' 
             placeholder='Title' 
+            autoComplete='off'
             required
             onChange={(e) =>setTitle(e.target.value)} 
             value={title}
@@ -87,6 +88,7 @@ const CreatePost = () => {
             type="text" 
             name='image' 
             placeholder='Image' 
+            autoComplete='off'
             required
             onChange={(e) =>setImage(e.target.value)} 
             value={image}
@@ -98,7 +100,8 @@ const CreatePost = () => {
           <input 
             type="text" 
             name='body' 
-            placeholder='Title' 
+            placeholder='Content' 
+            autoComplete='off'
             required
             onChange={(e) =>setBody(e.target.value)} 
             value={body}
@@ -111,6 +114,7 @@ const CreatePost = () => {
             type="text" 
             name='tags' 
             placeholder='Tags' 
+            autoComplete='off'
             required
             onChange={(e) =>setTags([e.target.value])} 
             value={tags}
