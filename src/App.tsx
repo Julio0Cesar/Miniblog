@@ -1,6 +1,6 @@
 import styles from '../src/styles/Global.scss'
 
-import { BrowserRouter, Routes, Route, Navigate, Link } from 'react-router-dom'; 
+import { BrowserRouter, Routes, Route, Navigate, Link, HashRouter } from 'react-router-dom'; 
 import { onAuthStateChanged, User} from 'firebase/auth';
 import { useState, useEffect } from 'react';
 import { AuthProvider } from './1.Mini-Blog/context/AuthContext';
@@ -43,7 +43,7 @@ function App() {
   return (
     <div className={styles.App}>
     <AuthProvider value={ user }>
-      <BrowserRouter>
+      <HashRouter>
           <Nav/>
           <Routes>
             <Route path='/Portifolio/' element={<First />} />
@@ -62,7 +62,7 @@ function App() {
             <Route path='*' element={<E404 />} />
           </Routes>
           <Footer/>
-        </BrowserRouter>
+        </HashRouter>
     </AuthProvider>
     </div>
   );
