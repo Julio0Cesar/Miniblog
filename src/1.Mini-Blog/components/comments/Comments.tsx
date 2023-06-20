@@ -1,75 +1,65 @@
 import styles from './Comments.module.scss'
 
-import { useParams } from 'react-router-dom'
-import { useInsertComment } from '../../hooks/useInserComment'
+import { useInsertComment } from '../../hooks/useInsertComment'
 import { useFetchComment } from '../../hooks/useFetchComment'
-import { useEffect, useState } from 'react'
-
-import Sentiment from 'sentiment'
+import { useSentimentComment } from '../../hooks/useSentimentComment'
+import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 type Props = {
     id: any
 }
 
 const Comments = ({id}: Props) => {
-    const {document: comments, loadingComment} = useFetchComment("posts", id)
+    const navigate = useNavigate()
+    const [comment, setComment] = useState("")
 
+    const {posOrNeg} = useSentimentComment(comment)
     const {insertComment, responseComment} = useInsertComment("posts")
-  
-    const [displayComment, setDisplayComment] = useState("")
-    const [posOrNeg, setPosOrNeg] = useState("")
-  
-    const analyzeSentiment = (displayComment:  string) =>{
-      const analyzer = new Sentiment()
-      const result = analyzer.analyze(displayComment)
-  
-        if(result.score > 0){
-          setPosOrNeg("Mensagem Positiva")
-        } 
-        else if(result.score < 0){
-          setPosOrNeg("Mensagem Negativa")
-        } 
-        else{
-          setPosOrNeg("Mensagem Neutra")
-        }
-    }
+    const {document: commentDocuments} = useFetchComment("posts", id)
 
     const handleSubmit = async (e: any) => {
       e.preventDefault()
-      analyzeSentiment(displayComment)
-  
-      if (posOrNeg !== '' && displayComment !== '') {
-        insertComment({posOrNeg, displayComment}, id);
+
+      if (posOrNeg !== '' && comment !== '') {
+        await insertComment({posOrNeg, comment}, id);
       }
+      setComment("")
+      window.location.reload()
     }
   
   return (
-    <div className={styles.form}>
-        {comments.length > 0 ? (
-    comments.map((commentario) => (
-      <div key={commentario.id}>
-        <p>{commentario.data.comment}</p>
-        <p>{commentario.data.posOrNeg}</p>
-      </div>
-    ))
-  ) : (
-    <p>Nenhum comentário encontrado.</p>
-  )}
-        <form onSubmit={handleSubmit}>
-          <label>
+    <div className={styles.comments}>
+      <div className={styles.commentsArea}>
+        <h3>Add new Comment</h3>
+          <form className={styles.form} onSubmit={handleSubmit}>
+            <label>
               <input
-              type='text'
-              name='comment'
-              placeholder='Comment' 
-              required
-              onChange={(e) =>setDisplayComment(e.target.value)} 
-              value={displayComment}
+                className={styles.input}
+                type='text'
+                name='comment'
+                placeholder='Comment' 
+                required
+                onChange={(e) =>setComment(e.target.value)} 
+                value={comment}
               />
-              {responseComment.loading && <button>Wait...</button>}
-              {!responseComment.loading && <button>Post</button>}
-          </label>
-      </form>
+            </label>
+                {responseComment.loading && <button>Wait...</button>}
+                {!responseComment.loading && <button className={styles.btn}>Comment</button>}
+          </form>
+            {commentDocuments.length > 0 ? ( commentDocuments.map((commentDocument) => (
+              <div key={commentDocument.id} className={styles.comment}>
+                <p className={styles.commentArea}>{commentDocument.data.comment}</p>
+                {commentDocument.data.posOrNeg === "Mensagem Positiva" && (<p className={styles.sentimentAreaP}><i className="bi bi-arrow-up"></i></p>)}
+                {commentDocument.data.posOrNeg === "Mensagem Negativa" && (<p className={styles.sentimentAreaN}><i className="bi bi-arrow-down"></i></p>)}
+                {commentDocument.data.posOrNeg === "Mensagem Neutra" && (<p className={styles.sentimentAreaNE}>-</p>)}
+              </div>
+            )) 
+            ) :(
+              <h4 className={styles.noComment}>No have Comments :/</h4>
+            )}
       </div>
+    </div>
   )
 }
 

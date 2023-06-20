@@ -21,8 +21,7 @@ const Search = () => {
             </div>
             {posts && posts.length === 0 && (
                 <>
-                    <p>Post not Found</p>
-                    <Link to='/Portifolio/Home'> Return</Link>
+                    <h1>Post not Found</h1>
                 </>
             )}
             {posts && posts.map((post)=> <PostDetails key={post.id} post={post}/>)}

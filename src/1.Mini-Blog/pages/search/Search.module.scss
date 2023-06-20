@@ -1,12 +1,12 @@
 .container{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 50em;
     .content{
+        padding: 120px;
         display: flex;
         flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
         .header{
             display: flex;
             width: 100%;
@@ -18,7 +18,6 @@
             a{
                 font-size: 35px;
                 color: white;
-                    font-style: none;
                 text-align:right;
                 transition: 1s;
     

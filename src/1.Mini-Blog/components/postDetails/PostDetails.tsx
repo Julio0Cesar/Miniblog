@@ -15,7 +15,7 @@ const PostDetails = ({post}: Props) => {
             <div className={styles.text}>
                 <h2>{post.title}</h2>
                 <p>{post.body}</p>
-                <p>{post.createdBy}</p>
+                <p>By: {post.createdBy}</p>
             </div>
         </div>
         <div className={styles.tags}>

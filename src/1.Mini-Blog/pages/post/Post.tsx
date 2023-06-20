@@ -13,21 +13,18 @@ const Post = () => {
     <div className={styles.container}>
       <div className={styles.containerPost}>
           {typeof post !== 'undefined' && typeof post.tagsArray !== "undefined" ?  (
-          <>
+          <div className={styles.post}>
             <h1>{post.title}</h1>
             <img src={post.image} alt={post.title} />
-            <p>{post.body}</p>
-            <h3>Post:</h3>
-            <div>
-              {post.tagsArray.map((tag: string) => (
-                <p key={tag}>
-                  <span>#</span>
-                  {tag}
-                </p>
-              ))}
+            <div className={styles.postDetails}>
+              <h2>{post.body}</h2>
+              <div className={styles.tag}>
+                {post.tagsArray.map((tag: string) => (
+                  <p key={tag}> <span>#</span> {tag} </p>))}
+              </div>
             </div>
-          </>
-        ): (
+          </div>
+        ) : (
           <>
           {loading && <h1>Loading...</h1>}
           </>

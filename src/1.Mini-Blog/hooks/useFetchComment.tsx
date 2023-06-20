@@ -6,8 +6,6 @@ export const useFetchComment = (docCollection: string, id: any) => {
     interface Comment {
         id: string;
         data: {
-          // Defina a estrutura dos dados do comentário aqui
-          // Por exemplo:
           comment: string;
           posOrNeg: string;
         };

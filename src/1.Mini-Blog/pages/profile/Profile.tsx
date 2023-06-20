@@ -1,12 +1,15 @@
 import styles from './Profile.module.scss'
-import useAuthentication from '../../hooks/useAuthentication'
+
 import { useAuthValue } from '../../context/AuthContext'
-import { User } from 'firebase/auth'
-import { useFetchDocuments } from '../../hooks/useFetchDocuments'
-import { Link } from 'react-router-dom'
+import useAuthentication from '../../hooks/useAuthentication'
 import {useDeleteDocument} from '../../hooks/useDeleteDocument'
+import { useFetchDocuments } from '../../hooks/useFetchDocuments'
+import { User } from 'firebase/auth'
+import { Link, useParams } from 'react-router-dom'
+import PostDetails from '../../components/postDetails/PostDetails'
 
 const Profile = () => {
+  const {id} = useParams()
   const user: User | null | undefined  = useAuthValue()  
   const uid = user?.uid
   
@@ -16,27 +19,32 @@ const Profile = () => {
   const {logout} = useAuthentication()
 
   return (
-    <div>
-      {posts && posts.length !== 0 ? (
-        <p></p>
-      ) : (
-        <p>Sem post</p>
-      )}
-      <div className={styles.dashboard}>
-
-        {posts &&
-          posts.map((post) => (
-            <div key={post.id}>
-              <p>{post.title}</p>
-              <div>
-                <Link to={`/Portifolio/Post/${post.id}`} >Ver</Link>
-                <Link to={`/Portifolio/Post/Edit/${post.id}`} >Editar</Link>
-                <button onClick={() => deleteDocument(post.id)}>Excluir</button>
+    <div className={styles.continer}>
+      <div className={styles.profile}>
+        <div className={styles.profileDescription}>
+          <div className={styles.profileDescriptions}>
+            <h2>{user?.displayName}</h2>
+            <h4>{user?.email}</h4>
+          </div>
+          <div className={styles.btn}>
+            <button onClick={logout}>Sign Out</button>
+          </div>
+        </div>
+        <div className={styles.profilePosts}>
+          {posts && posts.map((post) => (
+            <div key={post.id} className={styles.profilePostDesc}>
+              <div className={styles.profilePostsDesc}>
+                  <PostDetails key={post.id} post={post}/>
+                <div className={styles.functions}>
+                  <button className={styles.btnEx}>
+                    <Link to={`/Portifolio/Post/Edit/${post.id}`} >Editar</Link>
+                  </button>
+                  <button onClick={() => deleteDocument(post.id)}>Excluir</button>
+                </div>
               </div>
             </div>
           ))}
-
-        <button onClick={logout}>Sign Out</button>
+        </div>
       </div>
     </div>
   )

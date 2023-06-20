@@ -1,7 +1,79 @@
-.dashboard{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    height: 50vh;
+.continer{
+
+    .profile{
+        padding: 120px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+        .profileDescription{
+            display: flex;
+            width: 100%;
+            background-color: rgb(51, 51, 51);
+            border-radius: 10px;
+            align-items: center;
+            justify-content: space-between;
+            .profileDescriptions{
+                margin-bottom: 20px;
+                padding: 20px;
+                display: flex;
+                flex-direction: column;
+                h2{
+                    font-size: 80px;
+                }
+                h4{
+                    font-size: 40px;
+                }
+            }
+            .btn{
+                padding: 40px;
+                display: flex;
+                align-items: baseline;
+                justify-content: end;
+                button{
+                    background-color:  #b16e6e;
+                }
+            }
+        }
+
+
+
+        .profilePosts{
+            display: flex;
+            margin-top: 100px;
+            flex-direction: column;
+            .profilePostDesc{
+                display: flex;
+                flex-direction: column;
+                .profilePostsDesc{
+                    display: flex;
+                    align-items: center;
+                    justify-content:center ;
+                    flex-direction: column;
+                    .functions{
+                        width: 100%;
+                        text-align: center;
+                        display: flex;
+                        align-items: baseline;
+                        justify-content:space-around ;
+                        button{
+                            width: 200px;
+                            height: 50px;
+                            font-size: 23px;
+                            text-align: center;
+                        }
+                        .btnEx{
+                            background-color: #b16e6e;
+                            a{
+                                text-decoration: none;
+                                color: white;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
 }
