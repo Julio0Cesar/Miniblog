@@ -26,14 +26,12 @@ const Home = () => {
               <div className={styles.project}>
                 <Link to='/Portifolio/Home'>
                   <img src={miniBlogIM} />
-                  <span className={styles.esc}><i className="fi fi-brands-typescript"></i> + <i className="fa-brands fa-react"></i> + FIREBASE</span>
                   <span>Mini-Blog</span>
                 </Link>
               </div>
               <div className={styles.project}>
                 <Link to='/Portifolio/TodoList'> 
                   <img src={todolistIM} />
-                  <span className={styles.esc}><i className="fi fi-brands-typescript"></i> + <i className="fa-brands fa-react"></i> + <i className="fa-brands fa-sass"></i></span>
                   <span>Todo-List</span>
                 </Link>
               </div>
@@ -41,8 +39,13 @@ const Home = () => {
           </div>
           <hr/>
           <div className={styles.skills}>
-            <div className={styles.skillsIcons}>
+            <div className={styles.skillTitle}>
               <h1>Habilidades</h1>
+            </div>
+            <div className={styles.skillsIcons}>
+              <div className={styles.python}>
+                <i className="fa-brands fa-python"></i>
+              </div>
               <div className={styles.react}>
                 <i className="fa-brands fa-react"></i>
               </div>
@@ -54,6 +57,9 @@ const Home = () => {
               </div>
               <div className={styles.ts}>
                 <i className="fi fi-brands-typescript"></i>
+              </div>
+              <div className={styles.ubuntu}>
+              <i className="bi bi-ubuntu"></i>
               </div>
             </div>
           </div>

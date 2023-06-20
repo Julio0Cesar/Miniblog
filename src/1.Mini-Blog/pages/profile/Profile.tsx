@@ -36,10 +36,10 @@ const Profile = () => {
               <div className={styles.profilePostsDesc}>
                   <PostDetails key={post.id} post={post}/>
                 <div className={styles.functions}>
-                  <button className={styles.btnEx}>
+                  <button className={styles.btnEd}>
                     <Link to={`/Portifolio/Post/Edit/${post.id}`} >Editar</Link>
                   </button>
-                  <button onClick={() => deleteDocument(post.id)}>Excluir</button>
+                  <button className={styles.btnEx} onClick={() => deleteDocument(post.id)}>Excluir</button>
                 </div>
               </div>
             </div>
