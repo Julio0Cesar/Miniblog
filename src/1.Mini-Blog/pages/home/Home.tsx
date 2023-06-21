@@ -27,9 +27,13 @@ const Home = () => {
           </div>
         </form>
        
-      <div>
+      <div className={styles.posts}>
           {!loading && <div className={styles.loading}><span className={styles.loader}></span></div>}
-           {posts && posts.map((post)=> <PostDetails key={post.id} post={post}/>)}
+          {posts && posts.map((post)=> 
+            <div className={styles.postsDetails}>
+              <PostDetails key={post.id} post={post}/>
+            </div>
+          )}
           {posts && posts.length === 0 && (
             <div>
               <p>Posts are not found</p>

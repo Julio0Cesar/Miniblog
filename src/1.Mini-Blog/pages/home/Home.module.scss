@@ -26,6 +26,12 @@
             }
         }
     }
+    .posts{
+        .postsDetails{
+            margin: 50px;
+            
+        }
+    }
 }/* 
 .loading {
     display: flex;
@@ -48,3 +54,20 @@
         100% { transform: rotate(360deg); }
       }
   } */
+  @media only screen and (max-width: 920px){
+    .headerSearch{
+        margin-top: 100px;
+        h1{
+
+        display: none;
+        } 
+    }
+}
+@media only screen and (max-width: 520px){
+    .search{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+}

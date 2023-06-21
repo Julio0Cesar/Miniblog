@@ -78,3 +78,24 @@
 .noComment{
     margin: 200px;
 }
+
+@media only screen and (max-width: 1050px){
+    
+    .sentimentAreaP{
+        margin-right: 10px;
+    }.sentimentAreaN{
+        margin-right: 10px;
+    }.sentimentAreaNE{
+        margin-right: 10px;
+    }
+}
+@media only screen and (max-width: 880px){
+    
+    .sentimentAreaP{
+        margin-right: 20px;
+    }.sentimentAreaN{
+        margin-right: 20px;
+    }.sentimentAreaNE{
+        margin-right: 20px;
+    }
+}

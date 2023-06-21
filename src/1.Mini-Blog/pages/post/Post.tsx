@@ -8,7 +8,6 @@ import Comments from '../../components/comments/Comments'
 const Post = () => {
   const {id} = useParams()
   const {document: post, loading} = useFetchDocument("posts", id)
-
   return (
     <div className={styles.container}>
       <div className={styles.containerPost}>
@@ -18,6 +17,7 @@ const Post = () => {
             <img src={post.image} alt={post.title} />
             <div className={styles.postDetails}>
               <h2>{post.body}</h2>
+              <h4>By: {post.createdBy}</h4>
               <div className={styles.tag}>
                 {post.tagsArray.map((tag: string) => (
                   <p key={tag}> <span>#</span> {tag} </p>))}

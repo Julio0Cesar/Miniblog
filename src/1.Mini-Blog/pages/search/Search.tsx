@@ -24,7 +24,13 @@ const Search = () => {
                     <h1>Post not Found</h1>
                 </>
             )}
-            {posts && posts.map((post)=> <PostDetails key={post.id} post={post}/>)}
+            <div >
+                {posts && posts.map((post)=> 
+                    <div className={styles.contentPost}>
+                        <PostDetails key={post.id} post={post}/>
+                    </div>
+                )}
+            </div>
         </div>
     </div>
   )

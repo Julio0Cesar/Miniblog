@@ -15,6 +15,9 @@
         color: white;
     }
 }
+.hamburguer{
+    display: none;
+}
 .navListItems{
     margin-right: 50px;
     .active{
@@ -31,4 +34,34 @@
             }
         }
     }
+}
+
+@media only screen and (max-width: 550px){
+    .navListItems{
+        display: none;
+    }
+    .showMenu{
+        width: 20%;
+        text-align: center;
+        border-radius: 10px;
+        background-color: #1e2127;
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        right: 30px;
+        top: 50px;
+        ul{
+            display: flex;
+            flex-direction: column;
+            li{
+                margin: 5px;
+            }
+        }
+    }
+    .hamburguer{
+        font-size: 40px;
+        display: block;
+        margin-right: 30px;
+    }
+    
 }

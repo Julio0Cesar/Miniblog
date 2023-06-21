@@ -2,13 +2,19 @@ import { Link, NavLink, useLocation } from 'react-router-dom'
 import { Auth, User } from 'firebase/auth'
 import { useAuthValue } from '../../context/AuthContext'
 import styles from './Nav.module.scss'
+import { useState } from 'react'
 
 const Nav = () => {
   const user: User| null | undefined = useAuthValue()
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const location = useLocation()
   if(location.pathname === '/Portifolio' || location.pathname === '/Portifolio/' ||location.pathname ==='/Portifolio/TodoList'){return null}
 
+  const menuOnCLick = () => {
+    setIsMenuOpen(!isMenuOpen);
+    
+  }
   return (
     <header>
       <nav className={styles.navContent}>
@@ -17,7 +23,10 @@ const Nav = () => {
             Mini <h1>BLOG</h1>
           </NavLink>
         </div>
-        <div className={styles.navListItems}>
+        <div className={styles.hamburguer} onClick={menuOnCLick}>
+          <i className="bi bi-list"></i>
+        </div>
+        <div className={`${styles.navListItems} ${isMenuOpen ? styles.showMenu : ''}`}>
           <ul>
             <li> <NavLink to='/Portifolio/Home'
                   className={({ isActive }) => (isActive ? styles.active : "")}

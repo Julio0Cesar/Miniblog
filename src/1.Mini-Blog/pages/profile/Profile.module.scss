@@ -37,9 +37,6 @@
                 }
             }
         }
-
-
-
         .profilePosts{
             display: flex;
             margin-top: 100px;
@@ -47,6 +44,7 @@
             .profilePostDesc{
                 display: flex;
                 flex-direction: column;
+                margin: 50px;
                 .profilePostsDesc{
                     display: flex;
                     align-items: center;
@@ -82,5 +80,20 @@
                 }
             }
         }
+    }
+}
+
+@media only screen and (max-width: 900px){
+    
+    .profileDescription{
+        flex-direction: column;
+        max-width: 80%;
+    }
+}
+@media only screen and (max-width: 750px){
+    
+    
+    .functions{
+        flex-direction: column;
     }
 }

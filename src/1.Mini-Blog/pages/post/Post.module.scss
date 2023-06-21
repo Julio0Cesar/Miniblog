@@ -42,3 +42,32 @@
         }
     }
 }
+@media only screen and (max-width: 1050px){
+    
+    .post{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+    }
+
+}
+@media only screen and (max-width: 880px){
+    
+    img{
+        width: 100%;
+    }
+}
+@media only screen and (max-width: 550px){
+    
+    .post{
+
+        img{
+            width: 300px;
+        }
+        h1{
+            font-size: 10px;
+        }
+    }
+}
