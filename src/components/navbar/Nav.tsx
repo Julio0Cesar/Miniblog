@@ -1,4 +1,4 @@
-import { Link, NavLink, useLocation } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
 import { Auth, User } from 'firebase/auth'
 import { useAuthValue } from '../../context/AuthContext'
 import styles from './Nav.module.scss'
@@ -8,9 +8,6 @@ const Nav = () => {
   const user: User| null | undefined = useAuthValue()
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  const location = useLocation()
-  if(location.pathname === '/Portifolio' || location.pathname === '/Portifolio/' ||location.pathname ==='/Portifolio/TodoList'){return null}
-
   const menuOnCLick = () => {
     setIsMenuOpen(!isMenuOpen);
     
@@ -19,7 +16,7 @@ const Nav = () => {
     <header>
       <nav className={styles.navContent}>
         <div className={styles.logo}>
-          <NavLink to='/Portifolio/Home'>
+          <NavLink to='/'>
             Mini <h1>BLOG</h1>
           </NavLink>
         </div>
@@ -28,24 +25,24 @@ const Nav = () => {
         </div>
         <div className={`${styles.navListItems} ${isMenuOpen ? styles.showMenu : ''}`}>
           <ul>
-            <li> <NavLink to='/Portifolio/Home'
+            <li> <NavLink to='/'
                   className={({ isActive }) => (isActive ? styles.active : "")}
                   >Home</NavLink> </li>
-            <li> <NavLink to='/Portifolio/About'
+            <li> <NavLink to='/About'
                   className={({ isActive }) => (isActive ? styles.active : "")}
                   >About</NavLink> </li>
             {!user && (
               <>
-                <li> <NavLink to='/Portifolio/Login'
+                <li> <NavLink to='/Login'
                       className={({ isActive }) => (isActive ? styles.active : "")}
                       >Login</NavLink> </li>
               </>)} 
             {user &&(
               <>
-              <li> <NavLink to='/Portifolio/Profile'
+              <li> <NavLink to='/Profile'
                     className={({ isActive }) => (isActive ? styles.active : "")}
                     >Profile</NavLink> </li>
-              <li> <NavLink to='/Portifolio/CreatePost'
+              <li> <NavLink to='/CreatePost'
                     className={({ isActive }) => (isActive ? styles.active : "")}
                     >New Post</NavLink> </li>
               </> )}

@@ -3,24 +3,20 @@ import styles from '../src/styles/Global.scss'
 import { BrowserRouter, Routes, Route, Navigate, Link, HashRouter } from 'react-router-dom'; 
 import { onAuthStateChanged, User} from 'firebase/auth';
 import { useState, useEffect } from 'react';
-import { AuthProvider } from './1.Mini-Blog/context/AuthContext';
+import { AuthProvider } from './context/AuthContext';
 
-import First from './pages/home/First'
-import NavBar from './components/navbar/NavBar'
-import Footer from './components/footer/Footer';
-import Home from './1.Mini-Blog/pages/home/Home';
-import Nav from './1.Mini-Blog/components/navbar/Nav';
-import About from './1.Mini-Blog/pages/about/About';
-import Login from './1.Mini-Blog/pages/login/Login';
-import CreateAccount from './1.Mini-Blog/pages/createAccount/CreateAccount';
-import CreatePost from './1.Mini-Blog/pages/createPost/CreatePost';
-import Profile from './1.Mini-Blog/pages/profile/Profile';
-import E404 from './1.Mini-Blog/pages/404/E404';
-import Post from './1.Mini-Blog/pages/post/Post';
-import Search from './1.Mini-Blog/pages/search/Search';
-import useAuthentication from './1.Mini-Blog/hooks/useAuthentication';
-import TodoList from './2.Todo-List/Todo-List';
-import EditPost from './1.Mini-Blog/pages/editPost/EditPost';
+import Home from './pages/home/Home';
+import Nav from './components/navbar/Nav';
+import About from './pages/about/About';
+import Login from './pages/login/Login';
+import CreateAccount from './pages/createAccount/CreateAccount';
+import CreatePost from './pages/createPost/CreatePost';
+import Profile from './pages/profile/Profile';
+import E404 from './pages/404/E404';
+import Post from './pages/post/Post';
+import Search from './pages/search/Search';
+import useAuthentication from './hooks/useAuthentication';
+import EditPost from './pages/editPost/EditPost';
 
 
 
@@ -43,26 +39,22 @@ function App() {
   return (
     <div className={styles.App}>
     <AuthProvider value={ user }>
-      <HashRouter>
+      <BrowserRouter>
           <Nav/>
           <Routes>
-            <Route path='/Portifolio/' element={<First />} />
+            <Route path='/' element={<Home />} />
+            <Route path='/About' element={<About />} />
+            <Route path='/Search' element={<Search />} /> 
+            <Route path='/Post/:id' element={<Post />} />
+            <Route path='/Login' element={!user ? <Login /> : <Navigate to='/' />} />
+            <Route path='/CreateAccount' element={!user ? <CreateAccount /> : <Navigate to='/' />} />
+            <Route path='/CreatePost' element={user ? <CreatePost /> : <Navigate to='/Login' />} />
+            <Route path='/Profile' element={user ? <Profile /> : <Navigate to='/Login' />} />
+            <Route path='/Post/Edit/:id' element={user ? <EditPost /> : <Navigate to='/Login' />} />
             
-            <Route path='/Portifolio/Home' element={<Home />} />
-            <Route path='/Portifolio/About' element={<About />} />
-            <Route path='/Portifolio/Search' element={<Search />} /> 
-            <Route path='/Portifolio/Post/:id' element={<Post />} />
-            <Route path='/Portifolio/Login' element={!user ? <Login /> : <Navigate to='/Portifolio/Home' />} />
-            <Route path='/Portifolio/CreateAccount' element={!user ? <CreateAccount /> : <Navigate to='/Portifolio/Home' />} />
-            <Route path='/Portifolio/CreatePost' element={user ? <CreatePost /> : <Navigate to='/Portifolio/Login' />} />
-            <Route path='/Portifolio/Profile' element={user ? <Profile /> : <Navigate to='/Portifolio/Login' />} />
-            <Route path='/Portifolio/Post/Edit/:id' element={user ? <EditPost /> : <Navigate to='/Portifolio/Login' />} />
-            
-            <Route path='/Portifolio/TodoList' element={<TodoList />} /> 
             <Route path='*' element={<E404 />} />
           </Routes>
-          <Footer/>
-        </HashRouter>
+        </BrowserRouter>
     </AuthProvider>
     </div>
   );

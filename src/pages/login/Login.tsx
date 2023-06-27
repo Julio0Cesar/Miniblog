@@ -61,7 +61,7 @@ const Login = () => {
             {loading && <button>Wait...</button>}
             {!loading && <button>Login</button>}
             {err instanceof Error && <p className={styles.err}>{err.message}</p>}
-            <p>Create your Account <Link to='/Portifolio/CreateAccount'>Here</Link></p>
+            <p>Create your Account <Link to='/CreateAccount'>Here</Link></p>
 
         </div>
     </form>

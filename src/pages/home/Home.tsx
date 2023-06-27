@@ -14,7 +14,7 @@ const Home = () => {
     e.preventDefault()
 
     if(query){
-      return navigate(`/Portifolio/Search?q=${query}`)
+      return navigate(`/Search?q=${query}`)
     }
   }
   return (
@@ -37,7 +37,7 @@ const Home = () => {
           {posts && posts.length === 0 && (
             <div>
               <p>Posts are not found</p>
-              <Link to='/Portifolio/CreatePost'>Create the first post</Link>  
+              <Link to='/CreatePost'>Create the first post</Link>  
             </div>
           )}
         </div>

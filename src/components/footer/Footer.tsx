@@ -1,14 +1,8 @@
-import { useLocation } from 'react-router-dom'
-import styles from './Footer.module.scss'
+import React from 'react'
 
 const Footer = () => {
-  const location = useLocation()
-  if(location.pathname !== "/"){
-    return null
-  }
   return (
-    <>
-    </>
+    <div>Footer</div>
   )
 }
 

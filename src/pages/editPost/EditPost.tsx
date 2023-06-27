@@ -75,7 +75,7 @@ const EditPost = () => {
 
     updateDocument(id, data)
   
-    navigate("/Portifolio/Profile") 
+    navigate("/Profile") 
   }
 
 

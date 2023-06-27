@@ -61,7 +61,7 @@ const CreatePost = () => {
       createdBy: user?.displayName
     })
   
-    navigate("/Portifolio/Home") 
+    navigate("/") 
   }
 
 
