@@ -1,6 +1,9 @@
 # Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![image](https://github.com/Kintiz/Miniblog/assets/102155736/360cce51-4ad8-40a6-b024-e19c16ab2a68)
+
+## This App have Comment Sentiment
+![image](https://github.com/Kintiz/Miniblog/assets/102155736/9eb18306-ad20-4050-b67f-71acc4117b27)
 
 ## Available Scripts
 
