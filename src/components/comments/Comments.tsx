@@ -11,7 +11,6 @@ type Props = {
 }
 
 const Comments = ({id}: Props) => {
-    const navigate = useNavigate()
     const [comment, setComment] = useState("")
 
     const {posOrNeg} = useSentimentComment(comment)
@@ -35,10 +34,10 @@ const Comments = ({id}: Props) => {
           <form className={styles.form} onSubmit={handleSubmit}>
             <label>
               <input
-                className={styles.input}
+                autoComplete='off'
                 type='text'
                 name='comment'
-                placeholder='Comment' 
+                placeholder='Send a new Comment' 
                 required
                 onChange={(e) =>setComment(e.target.value)} 
                 value={comment}
@@ -56,7 +55,7 @@ const Comments = ({id}: Props) => {
               </div>
             )) 
             ) :(
-              <h4 className={styles.noComment}>No have Comments :/</h4>
+              <h4 className={styles.noComment}>No have Comments <i className="bi bi-emoji-dizzy"></i></h4>
             )}
       </div>
     </div>

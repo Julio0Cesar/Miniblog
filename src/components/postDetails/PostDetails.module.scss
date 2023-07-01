@@ -1,76 +1,62 @@
 .container{
-    background-color: rgba(255, 255, 255, 0.752);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    transition: 1s;
-    border-radius: 20px;
-    max-width: 800px;
-    .imageText{
+    max-width: 21em;
+    min-width: 21em;
+    .imageArea{
         display: flex;
         flex-direction: column;
+        margin: 0 auto;
         width: 100%;
-    }
-    .image{
-        img{
-        border-radius: 10px 10px 0px 0px;
-            max-width: 800px;
-            max-height: 25em;
-        height: 100%;
-            width: 100%;
+        .image{
+            margin: 0 auto;
+            position: relative;
+            a{
+                text-decoration: none;
+                color: white;
+                padding: 2px;
+                text-align:right;
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                z-index: 1;
+                margin: 20px;
+                &::after{
+                    content: '';
+                    display: flex;
+                    width: 0%;
+                    height: 1px;
+                    background-color: white;
+                    transition: .2s;
+                }
+                &:hover::after{
+                    transition: .2s;
+                    width: 100%;
+                }
+            }
+            .tags{
+                display: flex;
+                color: white;
+                padding: 2px;
+                position: absolute;
+                bottom: 0;
+                right: 0;
+                z-index: 1;
+                margin: 20px;
+                p{
+                    margin: 5px;
+                    font-size: 20px;
+                }
 
-        }
-    }
-    .text{
-        display: flex;
-        flex-direction: column;
-        align-items: start;
-        justify-content: space-between;
-        width: 100%;
-        color: black;
-        margin: 10px;
-        h2{
-            text-align: start;
-            font-size: 50px;
-        }
-        p{
-            text-align: start;
-            font-size: 25px;
-            margin-left: 5px;
-            margin: 10px;
-        }
-    }
-    .tags{
-        color: black;
-        display: flex;
-        p{
-            margin-left: 10px;
-            font-size: 20px;
-            color: #343e4f;
-        }
-    }
-    .link{
-        display: flex;
-        width: 90%;
-        justify-content: end;
-        margin: 10px;
-        a{
-            color: black;
-                font-style: none;
-            text-align:right;
-            transition: 1s;
+            }
+            img{
+                margin: 0 auto;
+                max-width: 25em;
+                min-width: 21em;
+                max-height: 25em;
+                min-height: auto;
+                height: 100%;
+                width: 100%;
 
+            }
         }
     }
-    a:hover{
-        transition: 1s;
-        transform: translateY(-4px);
-
-    }
-}
-.container:hover{
-    transition: 1s;
-    box-shadow: 2px 2px 20px 10px rgba(0, 0, 0, 0.274);
 }

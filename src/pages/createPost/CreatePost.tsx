@@ -1,10 +1,11 @@
 import styles from './CreatePost.module.scss'
 
 import { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { useAuthValue } from '../../context/AuthContext'
 import { useInsertDocument } from '../../hooks/useInsertDocument'
 import { User } from 'firebase/auth'
+import BackImage from '../../assets/1.png'
 
 const CreatePost = () => {
   
@@ -67,64 +68,78 @@ const CreatePost = () => {
 
   return (
     <div className={styles.container}>
-      <form onSubmit={handleSubmit} className={styles.form}>
-      <h1>Create Post</h1>
-        <label>
-          <span>Title: </span>
-          <input 
-            type="text" 
-            name='title' 
-            placeholder='Title' 
-            autoComplete='off'
-            required
-            onChange={(e) =>setTitle(e.target.value)} 
-            value={title}
-          />
-        </label>
+      <div className={styles.page}>
+        <div className={styles.imageLeft}>
 
-        <label>
-          <span>URL Image: </span>
-          <input 
-            type="text" 
-            name='image' 
-            placeholder='Image' 
-            autoComplete='off'
-            required
-            onChange={(e) =>setImage(e.target.value)} 
-            value={image}
-          />
-        </label>
+          <div className={styles.image}>
+              <img src={BackImage} />
+          </div>
 
-        <label>
-          <span>Content: </span>
-          <input 
-            type="text" 
-            name='body' 
-            placeholder='Content' 
-            autoComplete='off'
-            required
-            onChange={(e) =>setBody(e.target.value)} 
-            value={body}
-          />
-        </label>
+        </div>
+        <div className={styles.formRight}>
+          <div className={styles.return}>
+            <p><Link to={'/'}>Return</Link></p>
+          </div>
+          <form onSubmit={handleSubmit} className={styles.form}>
+          <h1>Create Post</h1>
+            <label>
+              <span>Title: </span>
+              <input 
+                type="text" 
+                name='title' 
+                placeholder='Title' 
+                autoComplete='off'
+                required
+                onChange={(e) =>setTitle(e.target.value)} 
+                value={title}
+              />
+            </label>
 
-        <label>
-          <span>Tags: </span>
-          <input 
-            type="text" 
-            name='tags' 
-            placeholder='Tags' 
-            autoComplete='off'
-            required
-            onChange={(e) =>setTags([e.target.value])} 
-            value={tags}
-          />
-        </label>
-         {response.loading && <button>Wait...</button>}
-        {!response.loading && <button>Post</button>}
-        {formErr instanceof Error && <p className={styles.err}>{formErr.message}</p>}
-       
-      </form>
+            <label>
+              <span>URL Image: </span>
+              <input 
+                type="text" 
+                name='image' 
+                placeholder='Image' 
+                autoComplete='off'
+                required
+                onChange={(e) =>setImage(e.target.value)} 
+                value={image}
+              />
+            </label>
+
+            <label>
+              <span>Content: </span>
+              <input 
+                type="text" 
+                name='body' 
+                placeholder='Content' 
+                autoComplete='off'
+                required
+                onChange={(e) =>setBody(e.target.value)} 
+                value={body}
+              />
+            </label>
+
+            <label>
+              <span>Tags: </span>
+              <input 
+                type="text" 
+                name='tags' 
+                placeholder='Tags' 
+                autoComplete='off'
+                required
+                onChange={(e) =>setTags([e.target.value])} 
+                value={tags}
+              />
+            </label>
+            {response.loading && <button>Wait...</button>}
+            {!response.loading && <button>Post</button>}
+            {formErr instanceof Error && <p className={styles.err}>{formErr.message}</p>}
+          
+          </form>
+        </div>
+      </div>
     </div>
   )
 }

@@ -3,33 +3,80 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    overflow: hidden;
+    .title{
+        height: 85vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        .welcome{
+            text-align: start;
+            height: 4.5em;
+            margin: 10px;
+        }
+        .titleMiniBlog{
+            h1{
+                font-weight: 600;
+            }
+        }
+    }
     .headerSearch{
+        background-color: #e2e2e2;
         display: flex;
         align-items: start;
         width: 100%;
-        height: 5em;
+        height: 10em;
+        margin-top: 20px;
+        margin-bottom: 20px;
         justify-content: space-around;
-        margin-top: 150px;
-        align-items: baseline;
+        align-items: center;
         h1{
             font-size: 70px;
         }
         .search{
             border-radius: 10px;
-            input{
-                border-radius: 5px;
-                width: 250px;
-                height: 45px;
-                margin-right: 10px;
-                outline: none;
-                border: 1px solid black;
+            label{
+                border: none;
+                input{
+                    border: none;
+                    border-top-left-radius: 5px;
+                    border-top-right-radius: 5px;
+                    width: 250px;
+                    height: 45px;
+                    margin-right: 10px;
+                    outline: none;
+                    &:focus{
+                        border-bottom: 1px solid;
+
+                    }
+                }
+
             }
         }
     }
     .posts{
+        padding: 20px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
         .postsDetails{
-            margin: 50px;
+            margin: 5px;
             
+        }
+    }
+    .footer{
+        height: 10em;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        a{
+            margin: 10px;
+            button{
+                width: auto;
+                font-size: 20px;
+                padding: 10px;
+            }
         }
     }
 }/* 
@@ -55,6 +102,9 @@
       }
   } */
   @media only screen and (max-width: 920px){
+    .container{
+        overflow: hidden;
+    }
     .headerSearch{
         margin-top: 100px;
         h1{
@@ -64,6 +114,9 @@
     }
 }
 @media only screen and (max-width: 520px){
+    .container{
+        overflow: hidden;
+    }
     .search{
         display: flex;
         flex-direction: column;

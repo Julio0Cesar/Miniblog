@@ -18,11 +18,21 @@ const Home = () => {
     }
   }
   return (
-    <div className={styles.container}>
+    <div id='start' className={styles.container}>
+      <div className={styles.title}>
+        <p className={styles.welcome}>Welcome to </p>
+        <span className={styles.titleMiniBlog}>
+          <h2>Mini</h2>
+          <h1>BLOG</h1>
+          <p>This is a Mini Blog from Kintiz</p>
+        </span>
+      </div>
          <form onSubmit={handleSubmit} className={styles.headerSearch}>
           <h1>New Posts</h1>
           <div className={styles.search}>
-            <input type="text" placeholder='Search for tags' onChange={(e) => setQuery(e.target.value)}/>
+            <label>
+              <input type="text" placeholder='Search for tags' onChange={(e) => setQuery(e.target.value)}/>
+            </label>
             <button>Search</button>
           </div>
         </form>
@@ -40,6 +50,10 @@ const Home = () => {
               <Link to='/CreatePost'>Create the first post</Link>  
             </div>
           )}
+        </div>
+        <div className={styles.footer}>
+            <h2>END <i className="bi bi-emoji-smile-fill"></i></h2>
+            <a href="#start"><button><i className="bi bi-arrow-up"></i></button></a>
         </div>
     </div>
   )

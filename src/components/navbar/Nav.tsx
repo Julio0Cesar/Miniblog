@@ -1,4 +1,4 @@
-import { Link, NavLink } from 'react-router-dom'
+import { Link, NavLink, useLocation } from 'react-router-dom'
 import { Auth, User } from 'firebase/auth'
 import { useAuthValue } from '../../context/AuthContext'
 import styles from './Nav.module.scss'
@@ -7,6 +7,17 @@ import { useState } from 'react'
 const Nav = () => {
   const user: User| null | undefined = useAuthValue()
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const location = useLocation()
+
+  if (location.pathname === '/CreatePost'){
+    return null
+  }
+  if (location.pathname === '/Login'){
+    return null
+  }
+  if (location.pathname === '/CreateAccount'){
+    return null
+  }
 
   const menuOnCLick = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -44,7 +55,7 @@ const Nav = () => {
                     >Profile</NavLink> </li>
               <li> <NavLink to='/CreatePost'
                     className={({ isActive }) => (isActive ? styles.active : "")}
-                    >New Post</NavLink> </li>
+                    >New Post <i className="bi bi-plus-lg"></i></NavLink> </li>
               </> )}
           </ul>
         </div>

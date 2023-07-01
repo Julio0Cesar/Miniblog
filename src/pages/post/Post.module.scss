@@ -9,16 +9,6 @@
         height: 100%;
         .post{
             text-align: center;
-            img{
-                border: 2px solid white;
-                padding: 10px;
-                background-color: rgba(196, 196, 196, 0.6);
-                transition: 1s; 
-            }
-            img:hover{
-                transition: 1s;  
-                box-shadow: 2px 2px 20px 10px rgba(0, 0, 0, 0.274);
-            }
             
             h1{
                 font-size: 80px;

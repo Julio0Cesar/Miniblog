@@ -16,6 +16,7 @@ import E404 from './pages/404/E404';
 import Post from './pages/post/Post';
 import Search from './pages/search/Search';
 import useAuthentication from './hooks/useAuthentication';
+import Footer from './components/footer/Footer'
 import EditPost from './pages/editPost/EditPost';
 
 
@@ -54,6 +55,7 @@ function App() {
             
             <Route path='*' element={<E404 />} />
           </Routes>
+          <Footer/>
         </BrowserRouter>
     </AuthProvider>
     </div>

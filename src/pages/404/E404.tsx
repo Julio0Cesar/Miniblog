@@ -5,7 +5,7 @@ const E404 = () => {
   
   return (
     <div className={styles.errorPage}>
-      <h1>ERROR 404</h1>
+      <h1>ERROR 404 <i className="bi bi-emoji-dizzy"></i></h1>
       <p>Page not found for now</p>
     </div>
   )
