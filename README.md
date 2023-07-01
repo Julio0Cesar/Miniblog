@@ -1,9 +1,9 @@
 # Getting Started with Create React App
 
-![image](https://github.com/Kintiz/Miniblog/assets/102155736/360cce51-4ad8-40a6-b024-e19c16ab2a68)
+![image](https://github.com/Kintiz/Miniblog/assets/102155736/11309674-c3c0-447c-8578-14f27dae17da)
 
 ## This App have Comment Sentiment
-![image](https://github.com/Kintiz/Miniblog/assets/102155736/9eb18306-ad20-4050-b67f-71acc4117b27)
+![image](https://github.com/Kintiz/Miniblog/assets/102155736/5b825688-eed8-488b-8f24-443683954538)
 
 ## Available Scripts
 
